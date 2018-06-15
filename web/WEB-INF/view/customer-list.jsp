@@ -3,26 +3,33 @@
 <html>
 <head>
     <title>Customer List</title>
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main.css"/>
 </head>
 <body>
 <h2>Customer List Management</h2>
 <br/>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-    </tr>
-
-    <c:forEach items="${customers}" var="customer">
+<div class="container-table">
+    <table>
+        <thead>
         <tr>
-            <td>${customer.id}</td>
-            <td>${customer.firstName}</td>
-            <td>${customer.lastName}</td>
-            <td>${customer.email}</td>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
         </tr>
-    </c:forEach>
-</table>
+        </thead>
+
+        <c:forEach items="${customers}" var="customer">
+            <tbody>
+            <tr>
+                <td>${customer.id}</td>
+                <td>${customer.firstName}</td>
+                <td>${customer.lastName}</td>
+                <td>${customer.email}</td>
+            </tr>
+            </tbody>
+        </c:forEach>
+    </table>
+</div>
 </body>
 </html>
