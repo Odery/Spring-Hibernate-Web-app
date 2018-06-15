@@ -14,7 +14,7 @@
 		http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <context:component-scan base-package="app.*"/>
+    <context:component-scan base-package="app.controller,app.dao"/>
 
     <mvc:annotation-driven/>
 
@@ -40,7 +40,7 @@
     <!-- Spring Hibernate Session Factory -->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="driverClass"/>
-        <property name="packagesToScan" value="app.*"/>
+        <property name="packagesToScan" value="app.entity"/>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</prop>
