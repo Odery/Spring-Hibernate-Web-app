@@ -1,24 +1,25 @@
 package app.controller;
 
-import app.dao.CustomerDAO;
+import app.service.CustomerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
 
-    private CustomerDAO customerDAO;
+    private CustomerService customerService;
 
-    public CustomerController(CustomerDAO customerDAO) {
-        this.customerDAO = customerDAO;
+    public CustomerController(CustomerService customerService) {
+        this.customerService = customerService;
     }
 
-    @RequestMapping("/list")
+    @GetMapping("/list")
     public String showList(Model model){
 
-        model.addAttribute("customers", customerDAO.getCustomerList());
+        model.addAttribute("customers", customerService.getCustomers());
 
         return "customer-list";
     }

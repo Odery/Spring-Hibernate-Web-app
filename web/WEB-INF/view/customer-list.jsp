@@ -6,10 +6,10 @@
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
 </head>
 <body>
-<h2 style="align-content: center;">Customer List Management</h2>
+<h1>Customer List Management</h1>
 <br/>
-<div class="container">
-    <table>
+<div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
         <thead>
         <tr>
             <th>ID</th>
@@ -18,7 +18,11 @@
             <th>Email</th>
         </tr>
         </thead>
+    </table>
+</div>
 
+<div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
         <tbody>
         <c:forEach items="${customers}" var="customer">
             <tr>
