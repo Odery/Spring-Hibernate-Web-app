@@ -21,4 +21,9 @@ public class CustomerServiceImpl implements CustomerService {
     public List<Customer> getCustomers() {
         return customerDAO.getCustomerList();
     }
+
+    @Override
+    public Customer newCustomer() {
+        return new Customer();
+    }
 }

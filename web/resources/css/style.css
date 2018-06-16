@@ -78,3 +78,63 @@ section{
 ::-webkit-scrollbar-thumb {
 	-webkit-box-shadow: inset 0 0 8px rgba(0,0,0,0.3);
 }
+
+.btn {
+	width: 224px;
+	box-sizing: border-box;
+	appearance: none;
+	background-color: transparent;
+	border: 2px solid red;
+	border-radius: 0.6em;
+	color: red;
+	cursor: pointer;
+	display: flex;
+	align-self: center;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1;
+	margin: 20px;
+	padding: 1.2em 2.8em;
+	text-decoration: none;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+}
+
+.btn:hover, .btn:focus {
+	color: #fff;
+	outline: 0;
+}
+
+.add {
+	border-color: #00694e;
+	border-radius: 0;
+	color: #00694b;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	transition: color 150ms ease-in-out;
+}
+
+.add:after {
+	content: '';
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 0;
+	height: 100%;
+	background: rgba(0, 127, 94, 0.48);
+	z-index: -1;
+	transition: width 150ms ease-in-out;
+}
+
+.add:hover {
+	color: #fff;
+}
+
+.add:hover:after {
+	width: 110%;
+}

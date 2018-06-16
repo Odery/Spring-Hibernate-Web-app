@@ -3,11 +3,13 @@
 <html>
 <head>
     <title>Customer List</title>
-    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
+    <link type="text/css" rel="stylesheet"
+          href="${pageContext.request.contextPath}/resources/css/style.css"/>
 </head>
 <body>
 <h1>Customer List Management</h1>
 <br/>
+<a class="btn add" href="/customer/add">Add Customer</a>
 <div class="tbl-header">
     <table cellpadding="0" cellspacing="0" border="0">
         <thead>
