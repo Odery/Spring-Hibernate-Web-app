@@ -11,9 +11,10 @@
 
 <h1>Customer List Management</h1>
 <div id="myForm">
-    <h3>New Customer Form</h3>
+    <h3>Update Customer</h3>
 
-    <form:form action="add" modelAttribute="customer" method="POST">
+    <form:form action="update" modelAttribute="customer" method="POST">
+        <form:hidden path="id"/>
         <table>
             <tr>
                 <td><span class="text">First Name </span><span class="red">*</span></td>

@@ -54,10 +54,6 @@ td:hover td:before {
 	z-index: -1;
 }
 
-
-/* demo styles */
-
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 body{
 	background: -webkit-linear-gradient(left, #25c481, #25b7c4);
 	background: linear-gradient(to right, #25c481, #25b7c4);
@@ -91,7 +87,6 @@ section{
 	display: flex;
 	align-self: center;
 	font-size: 16px;
-	font-weight: 400;
 	line-height: 1;
 	margin: 20px;
 	padding: 1.2em 2.8em;

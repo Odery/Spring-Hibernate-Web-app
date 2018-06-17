@@ -16,6 +16,7 @@ public class CustomerDAOImpl implements CustomerDAO {
         this.factory = factory;
     }
 
+    @SuppressWarnings("JpaQlInspection")
     @Override
     public List<Customer> getCustomerList() {
         Session session = factory.getCurrentSession();
@@ -23,5 +24,19 @@ public class CustomerDAOImpl implements CustomerDAO {
         Query<Customer> query = session.createQuery("from Customer", Customer.class);
 
         return query.getResultList();
+    }
+
+    @Override
+    public Customer getCustomer(int id) {
+        Session session = factory.getCurrentSession();
+
+        return session.get(Customer.class, id);
+    }
+
+    @Override
+    public void saveOrUpdateCustomer(Customer customer) {
+        Session session = factory.getCurrentSession();
+
+        session.saveOrUpdate(customer);
     }
 }
