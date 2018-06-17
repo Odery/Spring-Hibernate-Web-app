@@ -21,15 +21,14 @@ public class CustomerController {
 
     @GetMapping("/list")
     public String showList(Model model){
-
         model.addAttribute("customers", customerService.getCustomers());
+        model.addAttribute("search");
 
         return "customer-list";
     }
 
     @GetMapping("/add")
     public String addCustomer(Model model) {
-
         model.addAttribute("customer", customerService.newCustomer());
 
         return "addCustomer";
@@ -53,5 +52,23 @@ public class CustomerController {
     public String updateCustomer(@ModelAttribute("customer") Customer customer) {
         customerService.updateCustomer(customer);
         return "redirect:/customer/list";
+    }
+
+    @GetMapping("/delete")
+    public String deleteCustomer(@ModelAttribute("id") int id) {
+        customerService.deleteCustomer(id);
+        return "redirect:/customer/list";
+    }
+
+    @GetMapping("search-list")
+    public String doSearch(Model model, @ModelAttribute("search") String search) {
+        if (!search.isEmpty()) {
+            model.addAttribute("customers", customerService.searchCustomers(search));
+
+            model.addAttribute("search", search);
+            return "customer-list";
+        } else {
+            return "redirect:/customer/list";
+        }
     }
 }

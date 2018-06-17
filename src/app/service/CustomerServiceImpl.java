@@ -5,6 +5,7 @@ import app.entity.Customer;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -43,5 +44,27 @@ public class CustomerServiceImpl implements CustomerService {
     @Transactional
     public void updateCustomer(Customer customer) {
         customerDAO.saveOrUpdateCustomer(customer);
+    }
+
+    @Override
+    @Transactional
+    public void deleteCustomer(int id) {
+        customerDAO.deleteCustomer(customerDAO.getCustomer(id));
+    }
+
+    @Override
+    @Transactional
+    public List<Customer> searchCustomers(String search) {
+        search = search.toLowerCase();
+
+        List<Customer> customers = new ArrayList<>();
+        for (Customer customer : customerDAO.getCustomerList()) {
+            if (customer.getFirstName().toLowerCase().contains(search)
+                    || customer.getLastName().toLowerCase().contains(search)
+                    || customer.getEmail().toLowerCase().contains(search)) {
+                customers.add(customer);
+            }
+        }
+        return customers;
     }
 }
