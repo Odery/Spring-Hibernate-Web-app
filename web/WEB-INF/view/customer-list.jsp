@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Customer List</title>
     <link type="text/css" rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css/tt.css"/>
+          href="${pageContext.request.contextPath}/resources/css/main-style.css"/>
 </head>
 <body>
 <h1>Customer List Management</h1>
@@ -54,8 +54,8 @@
                 <td>${customer.lastName}</td>
                 <td>${customer.email}</td>
                 <td>
-                    <a href="${updateLink}">Update</a>
-                    <a href="${deleteLink}"
+                    <a href="${updateLink}" class="">Update</a>
+                    <a href="${deleteLink}" class=""
                        onclick="if (!(confirm('Customer will be deleted from database! Are you sure?')))return false">Delete</a>
                 </td>
             </tr>
